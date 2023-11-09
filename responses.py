@@ -33,4 +33,38 @@ def handle_response(message) -> str:
         a = timestamp.strftime('%H:%M:%S')
         return a
 
+        if p_message == '!google igs website':
+        return 'here is the site that you would like to search : https://belajar-online.ignatiusglobal.sch.id/login'
+
+    if p_message == '!google youtube':
+        return 'here is the site that you would like to search : https://www.youtube.com/'
+
+    if p_message == "!google netflix":
+        return 'here is the site that you would like to search : https://www.netflix.com/browse'
+
+    if p_message == "!google spotify":
+        return 'here is the site that you would like to search : https://open.spotify.com/'
+
+    bot = commands.Bot(command_prefix='!')
+
+    @bot.event
+
+
+    async def on_ready():
+        print(f'Logged in as {bot.user.name}')
+
+    @bot.command()
+    async def google(ctx, *, query):
+        async with ctx.typing():
+            results = []
+
+            async with async_timeout.timeout(10):
+                for result in search(query, "num=5", "stop=5", "pause=2.0"):
+                    results.append(result)
+
+            response = "\n".join(results)
+            await ctx.send(f"Search results for '{query}':\n{response}")
+
+    bot.run('MTE2ODUyNDk5NDAwMzg3Mzg0Mg.Gutt0D.gl7zWySkaPCKUbfd-XtsMY0Lx8qeoZbWL5Y7EI')
+    
     return "I dont know what you said broski"
