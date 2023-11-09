@@ -65,6 +65,6 @@ def handle_response(message) -> str:
             response = "\n".join(results)
             await ctx.send(f"Search results for '{query}':\n{response}")
 
-    bot.run('MTE2ODUyNDk5NDAwMzg3Mzg0Mg.Gutt0D.gl7zWySkaPCKUbfd-XtsMY0Lx8qeoZbWL5Y7EI')
+    bot.run('token')
     
     return "I dont know what you said broski"
