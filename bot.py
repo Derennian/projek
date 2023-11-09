@@ -1,6 +1,6 @@
 import discord
 import responses
-import datetime
+
 
 async def send_message(message, user_message, is_private):
     try:
@@ -10,7 +10,7 @@ async def send_message(message, user_message, is_private):
         print(e)
 
 def run_discord_bot():
-    TOKEN = 'MTE2OTE0NzkwMzY5NzIyNzc5Ng.Gg-V9C.JRpP6aqXvhKUn3b3-MJoefRv61vqBOa23W3jjY'
+    TOKEN = 'MTE2ODUyNDk5NDAwMzg3Mzg0Mg.GKDYXe.3qhKpoQT3M99dtNE6Kkmnh9v398AO1SPGfcRkk'
     intents = discord.Intents.default()
     intents.message_content = True
     client = discord.Client(intents=intents)
@@ -18,7 +18,6 @@ def run_discord_bot():
     @client.event
     async def on_ready():
         print(f'{client.user} is now running!')
-
     @client.event
     async def on_message(message):
         if message.author == client.user:
@@ -36,10 +35,10 @@ def run_discord_bot():
         else:
             await send_message(message, user_message, is_private=False)
 
-        if user_message == '!timestamp':
-            timestamp = datetime.utcnow()
-            await message.channel.send(timestamp)
-            await message.channel.send(timestamp.strftime("%I:%M %p"))
+
 
     client.run(TOKEN)
+
+
+
 
